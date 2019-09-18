@@ -13,11 +13,15 @@ stages:
 addons:
   sonarcloud:
     organization: "svanboxel-github"
-    
+
+env:
+  global:
+    secure: "RTqeHq67+0A6F9tOUFB6zn7m2k99b+R7Zk46pFYjnsTsBatuHr3ksMXSiAqnucg88tZJZaHkp1Ju7Aq38cZbAsmnVICaXANLxJvnStOvKiZ/KY0+UMt1qw8M/76ZtK4UbMOD+pULD8EeR/VHdT0tQmpNOc/KkU4375sM/pMcReMziolB2ksnlMcjiimdmqH99AFAKa3dKOnPhLiOxz2Wz+nGhWhQ10lEd/g4hyYGFKj2KgTCPUrsx+/VW6b/VsYsDRfGgDCvjci6DRxZb5GqimfZnyt/nroRjCKchJPsrNd7LcZOAa50WuZ235B1vIQKafnJFGNr4zfLao/cj2KQzNDsrFMmygbRkma53VAkZhJXJnolvUjQPyptKrrarpKYTU/Us2FJPWbnoZfj62U3mpl0QW21+gTfpHSZkI2uChHMJVn8x1qy8+EcDNb5mY90IottwCmjlAtu0RcOdZChnTjVNZAqFs+Gr7Dd5r725UjoBSxfdTDu0nJ/KkR5pgsi4BLqxuew+D6OCpA5bAQYqrG+AUFwDJRjxDtt4cdhVxGN24iXk3rl29Lhxemu3cka67prIo0gi03VWLjP1MEmzfExhc8HTvYeTUWhtX/W4xwnVmr5KuXGCxoPGybwer/rqfpUGo0oAOBk8ESaryKDLGtgTiLGmL8OCGW83xJ8LNU="
+
 jobs:
   include:
     - stage: test
-      script: 
+      script:
         - npm run test:ci
         - sonar-scanner
     - stage: release
